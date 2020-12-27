@@ -1,0 +1,35 @@
+#ifndef CLIST_H
+#define CLIST_H
+
+#include <stdio.h>
+
+typedef struct Node{
+    char *str_val;
+    int num_val;
+    struct Node *next;
+} Node;
+
+typedef struct List{
+    int node_cnt;
+    Node *first_node;
+} List;
+
+extern List *clist(void);
+extern void free_list(List *list);
+
+extern size_t len(List *list);
+extern char *str_val(List *list, int list_pos);
+extern int num_val(List *list, int list_pos);
+extern List *sub_list(List *list, int begin_pos, int end_pos); /* TODO : */
+extern void print_list(List *list);
+
+extern void append_str(List *list, const char *str_val);
+extern void append_num(List *list, const int num_val);
+extern void append_list(List *base_list, List *extra_list); /* TODO : */
+extern void pop(List *list);
+extern void del(List *list, int list_pos);
+
+extern void list_to_num_array(List *list, int num_arr[]); /* TODO : */
+extern void list_to_str_array(List *list, char *str_arr[]); /* TODO : */
+
+#endif /* CLIST_H */
